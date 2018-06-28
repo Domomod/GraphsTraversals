@@ -17,8 +17,7 @@
  You should have received a copy of the GNU General Public License
  along with this program.If not, see <https://www.gnu.org/licenses/>.
  
- This part was written by Krzysztof Sychla (expect destructor),
-  documented by Dominik Witczak
+ This part was written by Krzysztof Sychla
  */
 
 #include "AdjacencyMatrix.hpp"
@@ -60,15 +59,7 @@ void AdjacencyMatrix::fill(int array[]) {
                 tab[i][j] = 0;
             }
         }
-    }
-    
-//    for (int i = 0; i < n; i++) {
-//        for (int j = 0; j < n; j++) {
-//            printf("%d ", tab[i][j]);
-//        }
-//        printf("\n");
-//    }
-    
+    }  
 }
 
 void AdjacencyMatrix::printTab(){
@@ -90,7 +81,6 @@ void AdjacencyMatrix::printSorted(){
 
 void AdjacencyMatrix::DFS(int v){
     visited[v] = true;
-    //    std::cout<<v<<" ";
     for(int i=0;i<n;i++)
         if(tab[v][i] && !visited[i])
             DFS(i);
@@ -124,24 +114,9 @@ void AdjacencyMatrix::SortBFS(){
                 for(int j=0;j<n;j++)
                     if(tab[i][j]==1)
                         b_count[j]--;
-                //                std::cout<<i<<" ";
                 temp--;
             }
         }
     }
-    //    std::cout<<"\n";
     delete b_count;
 }
-
-void AdjacencyMatrix::Euler(int v){
-    for(int i=0;i>n;i++){
-        if(tab[v][i]){
-            tab[v][i]--;
-            tab[i][v]--;
-            Euler(i);
-        }
-    }
-    std::cout<<v<<" ";
-}
-
-
